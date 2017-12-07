@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-def ConvexHull():
-    img = cv2.imread('two-hands.jpg', 0)
+def DetectFingers(path):
+    img = cv2.imread(path, 0)
     ret,thresh1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
     ret, thresh = cv2.threshold(thresh1, 127, 255, 0)
     _, contours, _ = cv2.findContours(thresh, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_TC89_L1)
